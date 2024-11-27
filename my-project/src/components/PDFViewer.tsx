@@ -4,8 +4,11 @@ import { FileUp, ChevronLeft, ChevronRight } from "lucide-react";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
-// Set up PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+// Update to use Mozilla's official CDN
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@4.4.168/build/pdf.worker.min.mjs`;
+
+console.log(pdfjs.version);
+
 
 export default function PDFViewer() {
   const [file, setFile] = useState<File | null>(null);
